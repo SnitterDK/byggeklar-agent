@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict
+from typing import Optional
 
 from .engine import build_permit_pack
 from .models import BuildingCase
@@ -27,9 +28,9 @@ def create_strands_agent():
     def assemble_permit_pack(
         project_type: str,
         municipality: str,
-        area_m2: float | None = None,
-        height_m: float | None = None,
-        boundary_distance_m: float | None = None,
+        area_m2: Optional[float] = None,
+        height_m: Optional[float] = None,
+        boundary_distance_m: Optional[float] = None,
         has_site_plan: bool = False,
         has_drawings: bool = False,
         has_local_plan_reference: bool = False,
@@ -48,4 +49,3 @@ def create_strands_agent():
         return asdict(build_permit_pack(case))
 
     return Agent(system_prompt=SYSTEM_PROMPT, tools=[assemble_permit_pack])
-
