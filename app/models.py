@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List
+from typing import List, Optional
 
 
 class FindingState(str, Enum):
@@ -15,9 +15,9 @@ class FindingState(str, Enum):
 class BuildingCase:
     project_type: str
     municipality: str
-    area_m2: float | None
-    height_m: float | None
-    boundary_distance_m: float | None
+    area_m2: Optional[float]
+    height_m: Optional[float]
+    boundary_distance_m: Optional[float]
     has_site_plan: bool
     has_drawings: bool
     has_local_plan_reference: bool
@@ -41,4 +41,3 @@ class PermitPack:
         "Decision support only. The relevant municipality remains the authority "
         "and must confirm applicable rules and any permit requirement."
     )
-
