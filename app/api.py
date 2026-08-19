@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import asdict
 from pathlib import Path
+from typing import Optional
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
@@ -22,9 +23,9 @@ app.mount("/static", StaticFiles(directory=STATIC), name="static")
 class CasePayload(BaseModel):
     project_type: str = "carport"
     municipality: str = "Copenhagen"
-    area_m2: float | None = 28
-    height_m: float | None = 2.4
-    boundary_distance_m: float | None = 1.8
+    area_m2: Optional[float] = 28
+    height_m: Optional[float] = 2.4
+    boundary_distance_m: Optional[float] = 1.8
     has_site_plan: bool = False
     has_drawings: bool = True
     has_local_plan_reference: bool = False
@@ -44,4 +45,3 @@ def health() -> dict:
 def assess(payload: CasePayload) -> dict:
     case = BuildingCase(**payload.model_dump())
     return asdict(build_permit_pack(case))
-
