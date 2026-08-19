@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Evidence-first permit preparation for small Danish building projects." />
+    <title>Byggeklar Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">PROFESSIONAL AGENT · STRANDS SDK</p>
+        <h1>From rough idea to review-ready permit pack.</h1>
+        <p class="lede">Byggeklar Agent handles the repetitive preparation work and surfaces only the measurements, evidence and authority decisions that need a person.</p>
+      </header>
+
+      <section class="workspace" aria-label="Permit workspace">
+        <form id="case-form" class="panel">
+          <div class="panel-head">
+            <div><p class="eyebrow">DEMO CASE</p><h2>Small building project</h2></div>
+            <span class="safe">Decision support — not approval</span>
+          </div>
+          <div class="fields">
+            <label>Project type<select name="project_type"><option>carport</option><option>shed</option><option>garage</option><option>covered terrace</option><option>annex</option><option>small extension</option></select></label>
+            <label>Municipality<input name="municipality" value="Copenhagen" /></label>
+            <label>Area (m²)<input name="area_m2" type="number" step="0.1" value="28" /></label>
+            <label>Height (m)<input name="height_m" type="number" step="0.1" value="2.4" /></label>
+            <label>Boundary distance (m)<input name="boundary_distance_m" type="number" step="0.1" value="1.8" /></label>
+          </div>
+          <div class="checks">
+            <label><input name="has_site_plan" type="checkbox" /> Site plan attached</label>
+            <label><input name="has_drawings" type="checkbox" checked /> Drawings attached</label>
+            <label><input name="has_local_plan_reference" type="checkbox" /> Local-plan reference verified</label>
+          </div>
+          <button type="submit">Run agent workflow</button>
+        </form>
+
+        <section id="results" class="results" aria-live="polite">
+          <div class="empty"><strong>No invented answers.</strong><span>Run the sample case to create an evidence pack.</span></div>
+        </section>
+      </section>
+
+      <footer><span>Strands Agents SDK</span><span>Deterministic safety gate</span><span>Human and municipality escalation</span></footer>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+
